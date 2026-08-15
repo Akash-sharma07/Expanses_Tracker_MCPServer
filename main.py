@@ -1,11 +1,11 @@
 from fastmcp import FastMCP
 import os
-import aiosqlite  # Changed: sqlite3 → aiosqlite
+import aiosqlite
 import tempfile
 # Use temporary directory which should be writable
 TEMP_DIR = tempfile.gettempdir()
 DB_PATH = os.path.join(TEMP_DIR, "expenses.db")
-CATEGORIES_PATH = os.path.join(os.path.dirname(__file__), "categories.json")
+CATEGORIES_PATH = os.path.join(os.path.dirname(__file__), "Resource.json")
 
 print(f"Database path: {DB_PATH}")
 
@@ -98,8 +98,8 @@ async def summarize(start_date, end_date, category=None):  # Changed: added asyn
     except Exception as e:
         return {"status": "error", "message": f"Error summarizing expenses: {str(e)}"}
 
-@mcp.resource("expense:///categories", mime_type="application/json")  # Changed: expense:// → expense:///
-def categories():
+@mcp.resource("expense:///Resource", mime_type="application/json")  # Changed: expense:// → expense:///
+def Resource():
     try:
         # Provide default categories if file doesn't exist
         default_categories = {
