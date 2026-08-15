@@ -1,0 +1,19 @@
+[project]
+name = "expanses-tracker-server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Akash", email = "akash8017sharma@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=3.4.7",
+]
+
+[project.scripts]
+expanses-tracker-server = "expanses_tracker_server:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
